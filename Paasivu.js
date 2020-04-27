@@ -45,3 +45,26 @@ if(navigator.geolocation){
   });
 }
 
+function haeRadat() {
+  fetch(`https://discgolfmetrix.com/api.php?content=courses_list&country_code=FI`)
+  .then(function(vastaus) {
+    return(vastaus.json());
+  }).then(function(radat){
+    console.log(radat);
+    var pngIcon = new H.map.Icon("https://cdn0.iconfinder.com/data/icons/daily-boxes/150/phone-box-32.png"); // kuva pitää muuttaa
+    for (let i=0; i<radat.courses.length; i++) {
+        let latitudeRata = radat.courses[i].X;
+        let longitudeRata = radat.courses[i].Y;
+        if(latitudeRata==="" || latitudeRata===0 || longitudeRata==="" || latitudeRata ===0){
+          console.log('ei merkattuja koordinaatteja');
+        }else {
+        let rataMarker = new H.map.Marker({lat: latitudeRata, lng: longitudeRata },
+                  {icon: pngIcon});
+          map.addObject(rataMarker);
+        }
+    }
+  }).catch(function(error) {
+    console.log(error);
+  })
+}
+haeRadat();
