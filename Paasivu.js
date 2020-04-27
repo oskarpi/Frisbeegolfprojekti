@@ -55,12 +55,23 @@ function haeRadat() {
     for (let i=0; i<radat.courses.length; i++) {
         let latitudeRata = radat.courses[i].X;
         let longitudeRata = radat.courses[i].Y;
+        let nimiRata = radat.courses[i].Fullname;
+
         if(latitudeRata==="" || latitudeRata===0 || longitudeRata==="" || latitudeRata ===0){
           console.log('ei merkattuja koordinaatteja');
         }else {
         let rataMarker = new H.map.Marker({lat: latitudeRata, lng: longitudeRata },
                   {icon: pngIcon});
-          map.addObject(rataMarker);
+        rataMarker.setData("<p>"+nimiRata+"</p>");
+        rataMarker.addEventListener("tap", event => {
+          const bubble = new H.ui.InfoBubble(event.target.getGeometry(),
+              {
+                content: event.target.getData()
+              }
+          );
+          ui.addBubble(bubble);
+        }, false);
+        map.addObject(rataMarker);
         }
     }
   }).catch(function(error) {
