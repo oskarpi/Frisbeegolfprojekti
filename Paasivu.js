@@ -4,10 +4,12 @@ const kaupunki = document.getElementById('kaupunkinyt');
 const saatila = document.getElementById('saatilanyt');
 const lampotila = document.getElementById('lampotilanyt');
 const tuuli = document.getElementById('tuulinyt');
-const saatiedot3h = document.getElementById('saatiedot3h');
-const kaupunki3h = document.getElementById('kaupunki3h');
-const saatila3h = document.getElementById('lampotila3h');
-const tuuli3h = document.getElementById('tuuli3h');
+const reitti = document.getElementById('reitti');
+const saatiedotMyohemmin = document.getElementById('saatiedotmyohemmin');
+const aika = document.getElementById('aika');
+const kaupunkiMyohemmin = document.getElementById('kaupunkimyohemmin');
+const saatilaMyohemmin = document.getElementById('lampotilamyohemmin');
+const tuuliMyohemmin = document.getElementById('tuulimyohemmin');
 
 const platform = new H.service.Platform({
   'apikey': '8p9FRYr_h6RIG1C7OlCpADhv1cGVXNQBlIfZA4pFihU'});
@@ -68,6 +70,7 @@ function haeRadat() {
         longitudeRata = radat.courses[i].Y;
         nimiRata = radat.courses[i].Fullname;
 
+
         if(latitudeRata==="" || latitudeRata===0 || longitudeRata==="" || latitudeRata ===0){
           console.log('ei merkattuja koordinaatteja');
         }else {
@@ -94,33 +97,88 @@ function haeRadat() {
 haeRadat();
 
 function saaNyt(latitudeRata, longitudeRata) {
-  fetch(`https://api.openweathermap.org/data/2.5/weather?lat=90&lon=80&units=metric&lang=fi&appid=d5f46b97c0d3618c2e85e2939ec55a4b`)//pitää saada toimimaan muuttujilla
-  .then(function(vastaus) {
-    return vastaus.json();
-  }).then(function(nykyinenSaa) {
+  console.log(latitudeRata);
+  console.log(longitudeRata);
+  fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitudeRata}&lon=${longitudeRata}&units=metric&lang=fi&appid=d5f46b97c0d3618c2e85e2939ec55a4b`)//pitää saada toimimaan muuttujilla
+      .then(function(vastaus) {
+        return vastaus.json();
+      }).then(function(nykyinenSaa) {
     console.log(nykyinenSaa);
-    if(nykyinenSaa.name===''){
+
+    if (nykyinenSaa.name === '') {
       kaupunki.innerHTML = 'Kaupungin nimeä ei löytynyt';
-    }else {
+    }
+    else {
       kaupunki.innerHTML = nykyinenSaa.name;
     }
 
     saatila.innerHTML = 'Säätila: ' + nykyinenSaa.weather[0].description;
     lampotila.innerHTML = 'Lämpötila: ' + nykyinenSaa.main.temp + ' C';
     tuuli.innerHTML = 'Tuulen nopeus: ' + nykyinenSaa.wind.speed + ' m/s';
+    reitti.href = `https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=60.20,20.4&destination=65.34,25.5`;
   }).catch(function(error) {
     console.log(error);
   });
 }
 
 function saa3h(latitude, longitude) {
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=65&lon=70&units=metric&lang=fi&appid=d5f46b97c0d3618c2e85e2939ec55a4b`)
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=67.1&lon=28.4&units=metric&lang=fi&appid=d5f46b97c0d3618c2e85e2939ec55a4b`)
   .then(function(vastaus) {
     return vastaus.json();
   }).then(function(myohempiSaa) {
     console.log(myohempiSaa);
+    for (let j=1; j<10; j++){
+      const kappale =`
+    <div id="${j}"></div>`;
 
+      saatiedotMyohemmin.innerHTML +=kappale;
+
+      let kappale1= document.getElementById(j);
+
+      if(myohempiSaa.list[j].dt_txt===''){
+        const aika=`
+      <p>Aikaa ei saatavilla</p>`;
+        kappale1.innerHTML +=aika;
+      }else {
+        const aika=`
+      <p>Aika: ${myohempiSaa.list[j].dt_txt}</p>`;
+        kappale1.innerHTML += aika;
+      }
+
+
+      if(myohempiSaa.list[j].weather[0].description===null){
+        const saatila=`
+      <p>Säätilaa ei saatavilla</p>`;
+        kappale1.innerHTML += saatila;
+      }else{
+        const saatila=`
+      <p>Säätila: ${myohempiSaa.list[j].weather[0].description}<p>`;
+        kappale1.innerHTML += saatila;
+      }
+
+      if(myohempiSaa.list[j].main.temp===''){
+        const lampotila=`
+      <p>Sään kuvausta ei löytynyt</p>`;
+        kappale1.innerHTML += lampotila;
+      }else{
+        const lampotila=`
+      <p>Lämpötila: ${myohempiSaa.list[j].main.temp}</p>`;
+        kappale1.innerHTML += lampotila;
+      }
+
+      if(myohempiSaa.list[j].wind.speed===''){
+        const tuuli =`
+      <p>Tuulennopeutta ei saatavilla</p>`;
+        kappale1.innerHTML += tuuli;
+      }else{
+        const tuuli =`
+       <p> Tuulen nopeus : ${myohempiSaa.list[j].wind.speed}</p>`;
+        kappale1.innerHTML += tuuli;
+      }
+    }
   }).catch(function(error) {
     console.log(error);
   })
 }
+
