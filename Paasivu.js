@@ -24,9 +24,7 @@ const mapEvents = new H.mapevents.MapEvents(map);
 const behavior = new H.mapevents.Behavior(mapEvents);
 const geocoderService = platform.getGeocodingService();
 const ui = H.ui.UI.createDefault(map, defaultLayers, 'fi-FI');
-let latitudeRata = null;
-let longitudeRata = null;
-let nimiRata = null;
+
 
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(position => {
@@ -41,11 +39,11 @@ if(navigator.geolocation){
           prox: position.coords.latitude + "," + position.coords.longitude
         },
         success => {
-          let latitude= position.coords.latitude;
-          let longitude = position.coords.longitude;
+          const latitude= position.coords.latitude;
+          const longitude = position.coords.longitude;
           console.log(latitude);
           console.log(longitude);
-          let youMarker = new H.map.Marker({lat:latitude, lng:longitude});
+          const youMarker = new H.map.Marker({lat:latitude, lng:longitude});
           map.addObject(youMarker);
         },
         error => {
@@ -61,22 +59,25 @@ function haeRadat() {
     return(vastaus.json());
   }).then(function(radat){
     console.log(radat);
+
     var pngIcon = new H.map.Icon("https://cdn0.iconfinder.com/data/icons/daily-boxes/150/phone-box-32.png"); // kuva pitää muuttaa
     for (let i=0; i<radat.courses.length; i++) {
-        latitudeRata = radat.courses[i].X;
-        longitudeRata = radat.courses[i].Y;
-        nimiRata = radat.courses[i].Fullname;
+       const latitudeRata = radat.courses[i].X;
+       const longitudeRata = radat.courses[i].Y;
+       const rataLopetettu = radat.courses[i].Enddate;
+       const nimiRata = radat.courses[i].Fullname;
 
 
         if(latitudeRata==="" || latitudeRata===0 || longitudeRata==="" || latitudeRata ===0){
           console.log('ei merkattuja koordinaatteja');
-        }else {
+        }else if(rataLopetettu===null){
         let rataMarker = new H.map.Marker({lat: latitudeRata, lng: longitudeRata },
                   {icon: pngIcon});
         rataMarker.setData("<p>"+nimiRata+"</p>");
         rataMarker.addEventListener("tap", event => {
+
           saaNyt(latitudeRata,longitudeRata);
-          saa3h(latitudeRata, longitudeRata);
+          saaMyohemmin(latitudeRata, longitudeRata);
           const bubble = new H.ui.InfoBubble(event.target.getGeometry(),
               {
                 content: event.target.getData()
@@ -113,18 +114,19 @@ function saaNyt(latitudeRata, longitudeRata) {
     saatila.innerHTML = 'Säätila: ' + nykyinenSaa.weather[0].description;
     lampotila.innerHTML = 'Lämpötila: ' + nykyinenSaa.main.temp + ' C';
     tuuli.innerHTML = 'Tuulen nopeus: ' + nykyinenSaa.wind.speed + ' m/s';
-    reitti.href = `https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=60.20,20.4&destination=65.34,25.5`;
+    //reitti.href = `https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=${latitudeSijainti},${longitudeSijainti}&destination=${latitudeRata},${longitudeRata}`;
   }).catch(function(error) {
     console.log(error);
   });
 }
 
-function saa3h(latitude, longitude) {
-  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=67.1&lon=28.4&units=metric&lang=fi&appid=d5f46b97c0d3618c2e85e2939ec55a4b`)
+function saaMyohemmin(latitude, longitude) {
+  fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=fi&appid=d5f46b97c0d3618c2e85e2939ec55a4b`)
   .then(function(vastaus) {
     return vastaus.json();
   }).then(function(myohempiSaa) {
     console.log(myohempiSaa);
+    saatiedotMyohemmin.innerHTML ='';
     for (let j=1; j<10; j++){
       const kappale =`
     <div id="${j}"></div>`;

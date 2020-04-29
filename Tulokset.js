@@ -17,11 +17,11 @@ while (vaylat<0 || vaylat>36){
 
 for (let i=1; i<=pelaajat; i++){
   const sarake =`
-  <div id="${i}"><input type="text" placeholder="Nimesi"></div>`;
+  <div id="pelaaja${i}"><input type="text" placeholder="Nimesi"></div>`;
 
   runko.innerHTML += sarake;
 
-  let sarake1 = document.getElementById(i);
+  let sarake1 = document.getElementById('pelaaja'+i);
 
   for (let j=1; j<=vaylat; j++){
     let pisteet =`
@@ -39,32 +39,19 @@ const tulosnappi = document.getElementById('laskunappi');
 
 tulosnappi.addEventListener('click', laskuri);
 
-/*
-laskin ei toimi vielä
+
+
 function laskuri() {
-  let pelaaja = document.querySelector('input')
-  for (let x = 1; x <= 10; x++) {
-    let toka = document.getElementById('pisteet')[x].value;
-    console.log(toka);
-   const pelaaja1 = `
-    <p>${pelaaja}</p>`;
-
-    runko.innerHTML += pelaaja1;
-
-    var inputs = document.getElementsByTagName('input');
-    for (var i = 0; i < inputs.length; i += 1) {
-      let tulos = inputs[i].value;
-      console.log(tulos);
-
+  for(let h=1; h<=pelaajat; h++){
+    console.log(h);
+    const pelaajadiv = document.getElementById('pelaaja'+h);
+    console.log(pelaajadiv);
+    let pisteElementit = pelaajadiv.querySelectorAll('input[type=number]');
+    let pelaajaNimi = pelaajadiv.querySelector('input[type=text]').value;
+    let pisteet = 0;
+  for (let x = 0; x < pisteElementit.length; x++) {
+    pisteet += +pisteElementit[x].value;
+    }
+  console.log(pelaajaNimi,pisteet);
   }
 }
-
-for (let k=1; k<=vaylat; k++){
-  let tulos = document.querySelector('input').value;
-  let kokonaistulos =0;
-  kokonaistulos += tulos;
-  console.log(kokonaistulos);
-}
-console.log(kokonaistulos);
-runko.innerHTML += kokonaistulos;
-*/
