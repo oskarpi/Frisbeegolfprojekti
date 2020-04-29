@@ -53,7 +53,7 @@ tulosnappi.addEventListener('click', laskuri);
 
 
 /*
-Funktiota laskuri kustutaan, kun nappia painetaan. Funktion alussa tyhennetään edelliset tulokset. Laskurissa on kaksi for looppia. Ulommaisessa loopissa valitaan pelaajadiv muuttujaan pelaaja+ iteraattori elementit.
+Funktiota laskuri kustutaan, kun nappia painetaan. Funktion alussa tyhennetään edelliset tulokset.. Laskurissa on kaksi for looppia. Ulommaisessa loopissa valitaan pelaajadiv muuttujaan pelaaja+ iteraattori elementit.
 PisteElementit muuttuja valitsee kaikki pelaajadiv muuttujan input kentät, jonka arvot ovat numeroita. PelaajaNimi muuttuja ottaa arvokseen pelaajadiv muuttujan input kentät, joiden tyyppi on tekstiä.
 Tulokset muuttujaan valitaan tulokset id:n elementti. Alustetaan pisteet muuttuja nollaksi. Sisempi for loop käy läpi tietyn pelaajan tekstikentät, joissa on numero tyyppisiä arvoja.
 Arvot lisätään pisteet muuttujaan. Lopuksi pelaajan nimi ja pisteet tulostetaan sivulle.
