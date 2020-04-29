@@ -1,4 +1,11 @@
 'use strict';
+/**
+ @author Oskari Piiroinen
+ */
+
+/*
+haetaan html elementit id:n mukaan muuttujiin.
+ */
 const saatiedot = document.getElementById('saatiedotnyt');
 const kaupunki = document.getElementById('kaupunkinyt');
 const saatila = document.getElementById('saatilanyt');
@@ -7,12 +14,14 @@ const tuuli = document.getElementById('tuulinyt');
 const reitti = document.getElementById('reitti');
 const saatiedotMyohemmin = document.getElementById('saatiedotmyohemmin');
 
-
+//Api key syötetään Here Maps palveluun tässä. Here Maps vaati sisäänkirjautumisen, jotta saa avaimen.
 const platform = new H.service.Platform({
   'apikey': '8p9FRYr_h6RIG1C7OlCpADhv1cGVXNQBlIfZA4pFihU'});
 
+// Luodaan kartan overlay
 const defaultLayers = platform.createDefaultLayers();
 
+// Haetaan html sivulta id:n perusteella kartta ja luodaan siitä objekti. Kartassa määritetään sen keskusta, zoom ja pixelit.
 const map = new H.Map(document.getElementById('map'),
     defaultLayers.vector.normal.map,{
       center: {lat:50, lng:5},
@@ -20,11 +29,19 @@ const map = new H.Map(document.getElementById('map'),
       pixelRatio: window.devicePixelRatio || 1
     });
 
+//luodaan objektit kartta Eventeille ja määritellään sen default behaviour
+// tehdään muuttuja omansijainnin hakemiseen
+// tehdään käyttöliittymä, jossa määritellään myös kartan kieli
 const mapEvents = new H.mapevents.MapEvents(map);
 const behavior = new H.mapevents.Behavior(mapEvents);
 const geocoderService = platform.getGeocodingService();
 const ui = H.ui.UI.createDefault(map, defaultLayers, 'fi-FI');
 
+/*
+haetaan nykyinen sijainti ja keskitetään kartta sen mukaan. Palautetaan latitude ja longitude arvot, jos paikannus onnistuu.
+Arvot tallennetaan muuttujiin. Arvojen perusteella kartalle laitetaan marker youMarker objektilla. Kun paikannus onnistuu kutsuttaan haeRadat funktiota, joka merkkaa radat kartalle. Samalla siirretään omat koordinaatit funktiolle.
+Jos oman paikan paikannus ei onnistu tulostetaan virhe viesti konsoliin.
+ */
 
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(position => {
@@ -53,6 +70,13 @@ if(navigator.geolocation){
     );
   });
 }
+
+/*
+functiolla haeRadat haetaan discgolfmetrix API:sta Suomen frisbeegolfradat. Ehtolauseella tarkastetaan onko rata lopetettu eli onko sillä Enddate arvoa sekä tarkastetaan onko radalla koordinaatteja.
+Jos radalla ei ole koordinaatteja niin konsoliin tulostetaan "Ei merkattuja koordinaatteja". Jos rata on lopetettu se ei näy kartalla. Radat merkataan pngIcon-muutujalle, jonka kuvaa voidaan vaihtaa.
+For loopilla käydään radat läpi ja merkataan erillaisella markerilla. rataMarkkeri objektille eli radan markkerille, määritellään radan nimi pop up kuplaan, kun markkeria painetaan.
+Kun markkeria painetaan siirretään radan koordinaatit saaNyt ja saaMyohemmin funktioille. haeRadat vastaanottaa käyttäjän koordinaatit ja lähettää eteenpäin saaNyt funktiolle.
+ */
 
 function haeRadat(lat, long) {
   console.log(lat);
@@ -97,6 +121,12 @@ function haeRadat(lat, long) {
   })
 }
 
+/*
+Funktiolla saaNyt haetaan nykyinen sää Openwathermap API:sta, johon piti tehdä tunnukset avaimen saadakseen. Openwethermap API:sta käytettiin Current weather data APIa.
+Funktio ottaa parametrikseen käyttäjänsijainnin sekä radan sijainnin jota klikataan. Saatua dataa verrataan ehtolauseilla, onko Kaupungin nimeä.
+Kartan alle tulostetaan tiettyihin tageihin, kaupunki, säätila, lämpötila, tuulen nopeus sekä linkki Google Mapsiin(Näyttää reittiohjeet koordinaattien välille. Avautuu uuteen välilehteen).
+Konsoliin tulee virheilmoitus, jos funktiossa tapahtuu virhe.
+ */
 
 function saaNyt(latitudeSijainti, longitudeSijainti, latitudeRata, longitudeRata) {
   console.log(latitudeSijainti);
@@ -126,6 +156,13 @@ function saaNyt(latitudeSijainti, longitudeSijainti, latitudeRata, longitudeRata
   });
 }
 
+
+/*
+Funktio saaMyohemmin ottaa vastaan radan koordinaatit haeRadat funktiolta. Näyden koordinaattien mukaan haetaan yhden vuorokauden sää for loopilla.
+Funktiossa käytetään Openwethermap API:sta 5 day / 3 hour forecast APIa. Se palauttaa sää ennusteen 3 tunnin välein. Jokaiselle tietopaketilla on oma div elementtinsä, jonka id:t alkaa 1 ja loppuu 9.
+Säätietoihin tulostetaan päivämäärä/aika, sään kuvaus, lämpötila ja tuulennopeus. Jokaisella tiedolla on ehtolause, jos tietoa ei löydy.
+Funktio tulostaa virhe viestin konsoliin, mikäi funktiossa tapahtuu virhe.
+ */
 function saaMyohemmin(latitude, longitude) {
   fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&lang=fi&appid=d5f46b97c0d3618c2e85e2939ec55a4b`)
   .then(function(vastaus) {
