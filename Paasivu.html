@@ -1,25 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fi">
+<meta charset="UTF-8">
+<header class="masthead clear">
+    <div class="centered">
+        <div class="site-branding">
+            <h1 class="site-title">Frisbeegolf prorjekti</h1>
+        </div>
+    </div>
+    <ul>
+        <li><a class="active" href="#home">Home</a></li>
+        <li><a href="#news">Kiekot</a></li>
+        <li><a href="#contact">Heittotekniikat</a></li>
+        <li><a href="#about">Tulokset</a></li>
+    </ul>
+</header>
+
 <head>
-    <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-core.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-service.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
     <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
-    <link href="Paasivu.css" rel="stylesheet">
+    <link href="css/Paasivu.css" rel="stylesheet">
 </head>
+
 <body>
 <div id="map"></div>
 <div id="saatiedotnyt">
-    <H1 id="kaupunkinyt"></H1>
-    <p id="saatilanyt"></p>
-    <p id="lampotilanyt"></p>
-    <p id="tuulinyt"></p>
-    <a id="reitti" href="" target="_blank">Reittiohjeet</a>
+
+
 </div>
-<div id="saatiedotmyohemmin"></div>
-<script src="Paasivu.js"></script>
+<article class="card">
+    <a href="#">
+        <div class="card-content">
+            <H2 id="kaupunkinyt"></H2>
+            <p id="saatilanyt"></p>
+            <p id="lampotilanyt"></p>
+            <p id="tuulinyt"></p>
+            <a id="reitti" href="" target="_blank">Reittiohjeet</a>
+        </div>
+    </a>
+</article>
+
+<article class="card">
+    <a href="#">
+        <div class="card-content" id="saatiedotmyohemmin">
+        </div>
+    </a>
+</article>
+
+<script src="js/Paasivu.js"></script>
 </body>
 </html>

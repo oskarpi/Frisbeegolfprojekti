@@ -147,7 +147,7 @@ function saaMyohemmin(latitude, longitude) {
         kappale1.innerHTML +=aika;
       }else {
         const aika=`
-      <p>Aika: ${myohempiSaa.list[j].dt_txt}</p>`;
+      <h2>Aika: ${myohempiSaa.list[j].dt_txt}</h2>`;
         kappale1.innerHTML += aika;
       }
 
