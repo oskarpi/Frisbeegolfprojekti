@@ -6,10 +6,7 @@ const lampotila = document.getElementById('lampotilanyt');
 const tuuli = document.getElementById('tuulinyt');
 const reitti = document.getElementById('reitti');
 const saatiedotMyohemmin = document.getElementById('saatiedotmyohemmin');
-const aika = document.getElementById('aika');
-const kaupunkiMyohemmin = document.getElementById('kaupunkimyohemmin');
-const saatilaMyohemmin = document.getElementById('lampotilamyohemmin');
-const tuuliMyohemmin = document.getElementById('tuulimyohemmin');
+
 
 const platform = new H.service.Platform({
   'apikey': '8p9FRYr_h6RIG1C7OlCpADhv1cGVXNQBlIfZA4pFihU'});
