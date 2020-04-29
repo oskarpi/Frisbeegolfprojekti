@@ -43,15 +43,20 @@ tulosnappi.addEventListener('click', laskuri);
 
 function laskuri() {
   for(let h=1; h<=pelaajat; h++){
-    console.log(h);
     const pelaajadiv = document.getElementById('pelaaja'+h);
-    console.log(pelaajadiv);
     let pisteElementit = pelaajadiv.querySelectorAll('input[type=number]');
     let pelaajaNimi = pelaajadiv.querySelector('input[type=text]').value;
+    const tulokset = document.getElementById('tulokset');
+
     let pisteet = 0;
-  for (let x = 0; x < pisteElementit.length; x++) {
+
+    for (let x = 0; x < pisteElementit.length; x++) {
     pisteet += +pisteElementit[x].value;
+
     }
+
   console.log(pelaajaNimi,pisteet);
+    tulokset.innerHTML +=pelaajaNimi +' '+ pisteet + '<br/>';
+
   }
 }

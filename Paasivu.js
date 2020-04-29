@@ -39,8 +39,9 @@ if(navigator.geolocation){
           prox: position.coords.latitude + "," + position.coords.longitude
         },
         success => {
-          const latitude= position.coords.latitude;
+          const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
+          haeRadat(latitude,longitude);
           console.log(latitude);
           console.log(longitude);
           const youMarker = new H.map.Marker({lat:latitude, lng:longitude});
@@ -53,7 +54,9 @@ if(navigator.geolocation){
   });
 }
 
-function haeRadat() {
+function haeRadat(lat, long) {
+  console.log(lat);
+  console.log(long);
   fetch(`https://discgolfmetrix.com/api.php?content=courses_list&country_code=FI`)
   .then(function(vastaus) {
     return(vastaus.json());
@@ -75,8 +78,9 @@ function haeRadat() {
                   {icon: pngIcon});
         rataMarker.setData("<p>"+nimiRata+"</p>");
         rataMarker.addEventListener("tap", event => {
-
-          saaNyt(latitudeRata,longitudeRata);
+          console.log(lat);
+          console.log(long);
+          saaNyt(lat, long, latitudeRata,longitudeRata);
           saaMyohemmin(latitudeRata, longitudeRata);
           const bubble = new H.ui.InfoBubble(event.target.getGeometry(),
               {
@@ -92,9 +96,11 @@ function haeRadat() {
     console.log(error);
   })
 }
-haeRadat();
 
-function saaNyt(latitudeRata, longitudeRata) {
+
+function saaNyt(latitudeSijainti, longitudeSijainti, latitudeRata, longitudeRata) {
+  console.log(latitudeSijainti);
+  console.log(longitudeSijainti);
   console.log(latitudeRata);
   console.log(longitudeRata);
   fetch(
@@ -114,7 +120,7 @@ function saaNyt(latitudeRata, longitudeRata) {
     saatila.innerHTML = 'Säätila: ' + nykyinenSaa.weather[0].description;
     lampotila.innerHTML = 'Lämpötila: ' + nykyinenSaa.main.temp + ' C';
     tuuli.innerHTML = 'Tuulen nopeus: ' + nykyinenSaa.wind.speed + ' m/s';
-    //reitti.href = `https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=${latitudeSijainti},${longitudeSijainti}&destination=${latitudeRata},${longitudeRata}`;
+    reitti.href = `https://www.google.com/maps/dir/?api=1&travelmode=driving&origin=${latitudeSijainti},${longitudeSijainti}&destination=${latitudeRata},${longitudeRata}`;
   }).catch(function(error) {
     console.log(error);
   });
