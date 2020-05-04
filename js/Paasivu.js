@@ -60,7 +60,8 @@ if(navigator.geolocation){
           haeRadat(latitude,longitude);
           console.log(latitude);
           console.log(longitude);
-          const youMarker = new H.map.Marker({lat:latitude, lng:longitude});
+          var myIcon = new H.map.Icon("data:image/png;base64,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");
+          const youMarker = new H.map.Marker({lat:latitude, lng:longitude},{icon:myIcon});
           map.addObject(youMarker);
         },
         error => {
@@ -86,7 +87,7 @@ function haeRadat(lat, long) {
   }).then(function(radat){
     console.log(radat);
 
-    var pngIcon = new H.map.Icon("https://cdn0.iconfinder.com/data/icons/daily-boxes/150/phone-box-32.png"); // kuva pitää muuttaa
+    var pngIcon = new H.map.Icon("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAACE0lEQVRIS7WW3XXaQBCFZyQVgDvAHSiMeI6pIHYHpoLYFSSpwKSCOBXEqcDkGY2sDpIOQgFIk3N1djlrgn6M7H3jAPebOzs/y/QKJ8uyCzN7VFUWkUsi+khEF056TURfuY+TpukkjuM7IromojKKouVmsynD/4nIIxGlqnomInZMsxeUZdmdmd0Ef95C0H/2bojoQVWvTnbkovVpaPSrqjory3Lr3DZuzGxZFMV9W4Z6HYnIN5c2r9E4CiFEtK2q6hzwk0HH7sjMJmaGAKYQ7nOD3/Q6StN0miTJFOLM/N7MUFUNwJ17VV32FVUnaDabXTMzIm87gyCdjlz1/OiAXKnqQ58T//1RR+5efhPRpE0IzTkU0uooSBmqCFGjWZ+dVwGJCFJ2ycxfXFV9eivQX9eY50mS3JjZm4Ewr/xIQec/mwwIYnTq/OxC2vI8/ywiKIqwb5osjgbN5/O0rusndHtd1+s4jgH674wGQREumBndjj3j7wcV6Mu9VNV3o8sbAs4Z7qcRRyoD6FpVF6NB7p5Q4h6yIqKf2KIvmW9hIPvuhjgRfTgcmsy8yvP8Npx7ZnZbFAXgg88eJCLonf0dMPOamb/7tR1Wn9s9fwZThqwJiIVuvMOXQFpnXShyMGDLqqoWXZu0LYDeCSwiT3gTYF1HUbQ4fAENddYJCt4LR59ZQyG9qcMLiJl/7Xa71SnpCgP5B6+zEZTEKBGrAAAAAElFTkSuQmCC");
     for (let i=0; i<radat.courses.length; i++) {
        const latitudeRata = radat.courses[i].X;
        const longitudeRata = radat.courses[i].Y;
