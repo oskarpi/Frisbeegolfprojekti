@@ -4,6 +4,7 @@
  */
 // Tehdään muuttuja body tagille.
 const runko = document.querySelector('body');
+const tuloskortti = document.querySelector('.tuloskortti');
 //tehdään muuttujat vaylat ja pelaajat.
 let vaylat, pelaajat;
 
@@ -30,7 +31,7 @@ for (let i=1; i<=pelaajat; i++){
   const sarake =`
   <div id="pelaaja${i}"><input type="text" placeholder="Nimesi"></div>`;
 
-  runko.innerHTML += sarake;
+  tuloskortti.innerHTML += sarake;
 
   let sarake1 = document.getElementById('pelaaja'+i);
 
@@ -44,7 +45,7 @@ for (let i=1; i<=pelaajat; i++){
 const nappi =`
   <button id="laskunappi">Laske tulokset</button>`;
 
-runko.innerHTML += nappi;
+tuloskortti.innerHTML += nappi;
 
 //valitaan laskunappi muuttujaan tulosnappi ja lisätään 'click' kuuntelu. Kun nappia åainetaan kutsutaan laskuri funktiota.
 const tulosnappi = document.getElementById('laskunappi');

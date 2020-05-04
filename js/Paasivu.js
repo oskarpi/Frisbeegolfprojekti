@@ -6,7 +6,6 @@
 /*
 haetaan html elementit id:n mukaan muuttujiin.
  */
-const saatiedot = document.getElementById('saatiedotnyt');
 const kaupunki = document.getElementById('kaupunkinyt');
 const saatila = document.getElementById('saatilanyt');
 const lampotila = document.getElementById('lampotilanyt');
