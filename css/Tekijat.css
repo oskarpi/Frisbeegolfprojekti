@@ -1,11 +1,11 @@
-
+@import "lightbox.css";
 body {font-family: sans-serif;}
 
 p {color: #666;}
 
 nav ul{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 
@@ -98,3 +98,25 @@ li a:hover {
     background-color: #4CAF50;
 }
 
+
+section h1{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: space-around;
+}
+.flexbox2{
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: space-around;
+}
+a{
+    width: 100%;
+    text-align: center;
+}
