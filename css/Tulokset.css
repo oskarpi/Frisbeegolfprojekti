@@ -109,3 +109,6 @@ li a:hover {
       width: 100%;
     }
 }
+#pelaaja1, #pelaaja2, #pelaaja3, #pelaaja4,#pelaaja5{
+    width: 300px;
+}
