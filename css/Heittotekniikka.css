@@ -1,4 +1,7 @@
-body {font-family: sans-serif;}
+
+body {
+    font-family: sans-serif;
+}
 
 p {color: #666;}
 
@@ -6,6 +9,7 @@ nav ul{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 h2 {
@@ -13,12 +17,6 @@ h2 {
     color: #e74c3c;
 }
 
-
-@media screen and (min-width: 52em) {
-    .centered {
-        max-width: 52em;
-    }
-}
 
 .masthead {
     background-color: #ecf0f1;
@@ -95,4 +93,24 @@ li a:hover {
 
 .active {
     background-color: #4CAF50;
+}
+
+article h1, p, .flexbox h2{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.flexbox ul{
+    list-style-type: none;
+    background-color: #ecf0f1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    overflow: visible;
+    position: unset;
+}
+.flexbox li{
+    margin: 20px 100px;
 }
