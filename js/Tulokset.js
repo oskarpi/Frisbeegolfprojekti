@@ -3,8 +3,9 @@
 @author Oskari Piiroinen
  */
 // Tehdään muuttuja body tagille.
-const runko = document.querySelector('body');
-const tuloskortti = document.querySelector('.tuloskortti');
+
+const tuloskortti = document.querySelector('.flexbox');
+const tulokset = document.getElementById('tulokset');
 //tehdään muuttujat vaylat ja pelaajat.
 let vaylat, pelaajat;
 
@@ -65,7 +66,7 @@ function laskuri() {
     const pelaajadiv = document.getElementById('pelaaja'+h);
     let pisteElementit = pelaajadiv.querySelectorAll('input[type=number]');
     let pelaajaNimi = pelaajadiv.querySelector('input[type=text]').value;
-    const tulokset = document.getElementById('tulokset');
+
 
     let pisteet = 0;
 
