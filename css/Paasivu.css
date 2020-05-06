@@ -92,6 +92,7 @@ body {
 
 .card-content {
     padding: 1.4em;
+    text-align: center;
 }
 
 .card-content h2 {
