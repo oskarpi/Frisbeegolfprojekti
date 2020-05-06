@@ -114,7 +114,21 @@ section h1{
     display: flex;
     justify-content: center;
     width: 100%;
+    animation: bounce 2s;
 }
+
+@keyframes bounce {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 .flexbox{
     display: flex;
     flex-wrap: wrap;
