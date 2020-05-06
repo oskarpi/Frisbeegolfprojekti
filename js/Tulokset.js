@@ -76,7 +76,7 @@ function laskuri() {
     }
 
   console.log(pelaajaNimi,pisteet);
-    tulokset.innerHTML +=pelaajaNimi +' '+ pisteet + '<br/>';
+    tulokset.innerHTML +=pelaajaNimi +': '+ pisteet + ' heittoa' + '<br/>';
 
   }
 }
