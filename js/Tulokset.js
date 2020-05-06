@@ -2,9 +2,10 @@
 /**
 @author Oskari Piiroinen
  */
-// Tehdään muuttuja body tagille.
+// Tehdään muuttujat tageille.
 
 const tuloskortti = document.querySelector('.flexbox');
+const tuloskysely = document.querySelector('.tuloskortti');
 const tulokset = document.getElementById('tulokset');
 //tehdään muuttujat vaylat ja pelaajat.
 let vaylat, pelaajat;
@@ -46,12 +47,12 @@ for (let i=1; i<=pelaajat; i++){
 const nappi =`
   <button id="laskunappi">Laske tulokset</button>`;
 
-tuloskortti.innerHTML += nappi;
+tuloskysely.innerHTML += nappi;
 
 //valitaan laskunappi muuttujaan tulosnappi ja lisätään 'click' kuuntelu. Kun nappia åainetaan kutsutaan laskuri funktiota.
 const tulosnappi = document.getElementById('laskunappi');
 
-tulosnappi.addEventListener('click', laskuri);
+tuloskysely.addEventListener('click', laskuri);
 
 
 /*

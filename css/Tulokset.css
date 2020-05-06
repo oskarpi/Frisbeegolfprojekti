@@ -32,7 +32,7 @@ h1 {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    padding: 1em 0;
+    padding: 1em 1em;
     font-size: 4em;
     font-weight: 300;
     background: #e74c3c;
@@ -109,16 +109,18 @@ li a:hover {
     justify-content: center;
     flex-direction: row;
     height: 100%;
+    text-align: center;
 }
 
-@media only screen and (max-width: 950px){
+@media only screen and (max-width: 1000px){
     .flexbox{
       flex-wrap: wrap;
-      width: 100%;
     }
 }
 #pelaaja1, #pelaaja2, #pelaaja3, #pelaaja4,#pelaaja5{
     width: 300px;
+    padding-top: 30px;
+    padding-bottom: 60px;
 }
 
 footer{
@@ -133,9 +135,13 @@ footer{
 }
 
 button{
-    width: 300px;
+    width: 40%;
+    height: 50px;
+    margin-left: 30%;
+    margin-right: 30%;
 }
 
 input::placeholder{
     text-align: center;
 }
+
