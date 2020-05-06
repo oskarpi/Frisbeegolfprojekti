@@ -1,5 +1,5 @@
 @import "lightbox.css";
-body {font-family: sans-serif;}
+body {font-family: 'Open Sans', sans-serif;}
 
 p {color: #666;}
 
@@ -9,11 +9,15 @@ nav ul{
     flex-wrap: wrap;
 }
 
-h2 {
+h1 {
     font-size: 2em;
     color: #e74c3c;
+    font-family: 'Francois One', sans-serif;
 }
 
+h2{
+    font-family: 'Francois One', sans-serif;
+}
 
 @media screen and (min-width: 52em) {
     .centered {

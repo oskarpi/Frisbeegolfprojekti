@@ -1,5 +1,5 @@
 
-body {font-family: sans-serif;}
+body {font-family: 'Open Sans', sans-serif;}
 
 p {color: #666;}
 
@@ -9,9 +9,10 @@ nav ul{
     flex-wrap: wrap;
 }
 
-h2 {
+h1 {
     font-size: 2em;
     color: #e74c3c;
+    font-family: 'Francois One', sans-serif;
 }
 
 
@@ -53,7 +54,7 @@ h2 {
 
 body {
     background: #ecf0f1;
-    line-height: 1.4;
+    line-height: 1.9;
 }
 
 .site-title {

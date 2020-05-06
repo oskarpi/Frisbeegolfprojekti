@@ -1,6 +1,6 @@
 
 body {
-    font-family: sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 p {color: #666;}
@@ -15,8 +15,12 @@ nav ul{
 h1 {
     font-size: 2em;
     color: #e74c3c;
+    font-family: 'Francois One', sans-serif;
 }
 
+h2{
+    font-family: 'Francois One', sans-serif;
+}
 
 .masthead {
     background-color: #ecf0f1;
@@ -31,6 +35,7 @@ h1 {
     font-size: 4em;
     font-weight: 300;
     background: #e74c3c;
+    font-family: 'Francois One', sans-serif;
 }
 
 @media screen and (min-width: 44.44em) {
@@ -56,7 +61,7 @@ h1 {
 
 body {
     background: #ecf0f1;
-    line-height: 1.4;
+    line-height: 1.9;
 }
 
 .site-title {

@@ -1,4 +1,4 @@
-body {font-family: sans-serif;}
+body {font-family: 'Open Sans', sans-serif;}
 
 p {color: #666;}
 
@@ -11,8 +11,12 @@ nav ul{
 h1 {
     font-size: 2em;
     color: #e74c3c;
+    font-family: 'Francois One', sans-serif;
 }
 
+h2{
+    font-family: 'Francois One', sans-serif;
+}
 
 .masthead {
     background-color: #ecf0f1;
@@ -27,6 +31,7 @@ h1 {
     font-size: 4em;
     font-weight: 300;
     background: #e74c3c;
+    font-family: 'Francois One', sans-serif;
 }
 
 @media screen and (min-width: 44.44em) {
@@ -112,7 +117,7 @@ article h1, p, .flexbox h2{
 }
 
 .flexbox li a{
-    color: black;
+    color: #666;
 }
 .flexbox li a:hover{
     background-color: white;
@@ -129,8 +134,7 @@ article h1, p, .flexbox h2{
     width: auto;
     margin: 10px;
     text-align: left;
-    line-height: 40px;
-    font-size: 20px;
+    line-height: 1.9;
     padding: 15px;
 }
 .parag figure{
