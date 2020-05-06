@@ -8,6 +8,11 @@ nav ul{
     justify-content: space-between;
     flex-wrap: wrap;
 }
+@media screen and (max-width: 860px){
+    nav ul{
+        flex-direction: column;
+    }
+}
 
 h1 {
     font-size: 2em;
@@ -124,5 +129,13 @@ footer{
     line-height: 70px;
     font-size: 30px;
     margin: 0;
+    text-align: center;
+}
+
+button{
+    width: 300px;
+}
+
+input::placeholder{
     text-align: center;
 }

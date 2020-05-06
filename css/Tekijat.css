@@ -8,6 +8,11 @@ nav ul{
     justify-content: space-around;
     flex-wrap: wrap;
 }
+@media screen and (max-width: 860px){
+    nav ul{
+        flex-direction: column;
+    }
+}
 
 h1 {
     font-size: 2em;
