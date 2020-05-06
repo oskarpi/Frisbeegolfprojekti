@@ -120,7 +120,7 @@ h2{
 }
 
 .flexbox li a{
-    color: black;
+    color: #666;
 }
 .flexbox li a:hover{
     background-color: white;
@@ -151,7 +151,12 @@ h2{
 .pad{
     padding-bottom: 150px;
 }
-
+.pad a{
+    color: black;
+}
+.pad a:hover{
+    background-color: #4CAF50;
+}
 footer{
     padding-top: 30px;
 }

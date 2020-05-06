@@ -119,3 +119,10 @@ li a:hover {
 footer{
     padding-top: 30px;
 }
+
+.tulokset p{
+    line-height: 70px;
+    font-size: 30px;
+    margin: 0;
+    text-align: center;
+}
