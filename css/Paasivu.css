@@ -84,6 +84,7 @@ body {
     justify-content: center;
     margin-top: 60px;
     margin-bottom: 1em;
+    border-radius: 16px;
 }
 
 
@@ -185,5 +186,14 @@ article.card{
 
 footer{
     padding-top: 30px;
+}
+.parag{
+    background-color: white;
+    border-radius: 19px;
+    width: auto;
+
+    text-align: left;
+    line-height: 1.9;
+    padding: 15px;
 }
 

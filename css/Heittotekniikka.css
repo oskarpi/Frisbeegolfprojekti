@@ -140,3 +140,12 @@ footer{
 h3{
     text-align: center;
 }
+
+.parag{
+    background-color: white;
+    border-radius: 19px;
+    width: auto;
+    text-align: left;
+    line-height: 1.9;
+    padding: 15px;
+}

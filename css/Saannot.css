@@ -125,9 +125,7 @@ article h1, p, .flexbox h2{
     position: unset;
     color: #666;
 }
-ul li:before{
-    color: #4CAF50;
-}
+
 
 .flexbox li{
     margin: 20px 250px;
@@ -139,4 +137,15 @@ ul li:before{
 .flexbox li a:hover{
     background-color: white;
 }
-
+.parag{
+    background-color: white;
+    border-radius: 19px;
+    width: auto;
+    margin: 30px;
+    text-align: left;
+    line-height: 1.9;
+    padding: 15px;
+}
+.parag ul{
+    background-color: white;
+}
