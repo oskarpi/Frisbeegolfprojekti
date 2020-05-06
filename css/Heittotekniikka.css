@@ -129,7 +129,6 @@ article h1, p, .flexbox h2{
 }
 
 article p{
-    padding-bottom: 30px;
     text-align: center;
 }
 
@@ -145,6 +144,7 @@ h3{
     background-color: white;
     border-radius: 19px;
     width: auto;
+    margin:30px;
     text-align: left;
     line-height: 1.9;
     padding: 15px;
