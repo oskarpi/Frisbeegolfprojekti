@@ -4,7 +4,10 @@
 }
 body {font-family: 'Open Sans', sans-serif;}
 
-p {color: #666;}
+p {
+    color: #666;
+    text-align: center;
+}
 
 nav ul{
     display: flex;
@@ -12,11 +15,14 @@ nav ul{
     flex-wrap: wrap;
 }
 
-h2 {
+h1 {
     font-size: 2em;
     color: #e74c3c;
     font-family: 'Francois One', sans-serif;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
+
 
 
 .masthead {
@@ -70,7 +76,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 1em;
+    margin-top: 60px;
     margin-bottom: 1em;
 }
 
@@ -92,6 +98,8 @@ body {
     margin-top: 0;
     margin-bottom: .5em;
     font-weight: normal;
+    color: #e74c3c;
+    font-family: 'Francois One', sans-serif;
 }
 
 .card-content p {
@@ -151,6 +159,15 @@ li a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 50px;
+}
+
+.welcome h1{
+    font-size: 2em;
+    color: #e74c3c;
+    font-family: 'Francois One', sans-serif;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 article.card{
@@ -158,3 +175,4 @@ article.card{
     flex-wrap: wrap;
     justify-content: center;
 }
+

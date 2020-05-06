@@ -13,6 +13,8 @@ h1 {
     font-size: 2em;
     color: #e74c3c;
     font-family: 'Francois One', sans-serif;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 
@@ -112,4 +114,8 @@ li a:hover {
 }
 #pelaaja1, #pelaaja2, #pelaaja3, #pelaaja4,#pelaaja5{
     width: 300px;
+}
+
+footer{
+    padding-top: 30px;
 }

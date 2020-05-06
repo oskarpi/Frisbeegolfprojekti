@@ -1,7 +1,12 @@
 @import "lightbox.css";
 body {font-family: 'Open Sans', sans-serif;}
 
-p {color: #666;}
+p {
+    color: #666;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    text-align: center;
+}
 
 nav ul{
     display: flex;
@@ -12,8 +17,13 @@ nav ul{
 h1 {
     font-size: 2em;
     color: #e74c3c;
+    font-family: 'Francois One', sans-serif;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
-
+h2{
+    font-family: 'Francois One', sans-serif;
+}
 
 .masthead {
     background-color: #ecf0f1;
@@ -62,7 +72,7 @@ body {
 
 ul {
     list-style-type: none;
-    margin: 0;
+    margin-bottom: 50px;
     padding: 0;
     overflow: hidden;
     background-color: #333;
@@ -74,6 +84,7 @@ ul {
 
 li {
     float: left;
+    text-align: center;
 }
 
 li a {
@@ -96,7 +107,6 @@ article h1, p, .flexbox h2{
     display: flex;
     justify-content: center;
     width: 100%;
-    font-family: 'Francois One', sans-serif;
 }
 
 .flexbox ul{
@@ -110,6 +120,10 @@ article h1, p, .flexbox h2{
     position: unset;
     color: #666;
 }
+ul li:before{
+    color: #4CAF50;
+}
+
 .flexbox li{
     margin: 20px 250px;
 }
@@ -120,3 +134,4 @@ article h1, p, .flexbox h2{
 .flexbox li a:hover{
     background-color: white;
 }
+

@@ -16,6 +16,8 @@ h1 {
     font-size: 2em;
     color: #e74c3c;
     font-family: 'Francois One', sans-serif;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 h2{
@@ -118,4 +120,17 @@ article h1, p, .flexbox h2{
 }
 .flexbox li{
     margin: 20px 100px;
+}
+
+article p{
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+footer{
+    padding-top: 30px;
+}
+
+h3{
+    text-align: center;
 }

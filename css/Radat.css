@@ -12,6 +12,8 @@ h1 {
     font-size: 2em;
     color: #e74c3c;
     font-family: 'Francois One', sans-serif;
+    padding-bottom: 30px;
+    padding-top: 30px;
 }
 
 
@@ -148,4 +150,12 @@ h2{
 }
 .pad{
     padding-bottom: 150px;
+}
+
+footer{
+    padding-top: 30px;
+}
+
+figcaption{
+    text-align: center;
 }
