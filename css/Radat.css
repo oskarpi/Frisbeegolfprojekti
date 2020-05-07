@@ -168,11 +168,21 @@ h2{
     float: left;
     margin-top: 26px;
     margin-bottom: 25px;
+    margin-left: 16px;
 }
 .parag p{
     display: block;
+    margin-left: 16px;
+}
+.pad{
+    padding-bottom: 350px;
 }
 
+@media screen and (max-width: 1164px) {
+    .pad{
+        padding-bottom: 200px;
+    }
+}
 .pad a{
     color: black;
 }
