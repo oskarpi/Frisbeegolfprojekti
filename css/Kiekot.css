@@ -139,7 +139,7 @@ p, .flexbox h2{
     position: unset;
 }
 .flexbox li{
-    margin: 20px 250px;
+    margin: 20px 350px;
 }
 
 .flexbox li a{
@@ -169,6 +169,7 @@ p, .flexbox h2{
 }
 .parag p{
     display: block;
+    text-align: left;
 }
 
 footer{
