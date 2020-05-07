@@ -112,7 +112,7 @@ article h1{
     display: flex;
     justify-content: center;
     width: 100%;
-    animation: bounce 2.1s;
+    animation: bounce 2s;
 }
 
 @keyframes bounce {
