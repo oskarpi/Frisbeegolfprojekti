@@ -165,7 +165,7 @@ p, .flexbox h2{
 }
 .parag figure{
     float: left;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 .parag p{
     display: block;
@@ -177,4 +177,7 @@ footer{
 
 figcaption{
     text-align: center;
+}
+figure:first-child{
+    padding-top: 15px;
 }

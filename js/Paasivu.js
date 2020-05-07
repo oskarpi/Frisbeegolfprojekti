@@ -38,7 +38,8 @@ const ui = H.ui.UI.createDefault(map, defaultLayers, 'fi-FI');
 
 /*
 haetaan nykyinen sijainti ja keskitetään kartta sen mukaan. Palautetaan latitude ja longitude arvot, jos paikannus onnistuu.
-Arvot tallennetaan muuttujiin. Arvojen perusteella kartalle laitetaan marker youMarker objektilla. Kun paikannus onnistuu kutsuttaan haeRadat funktiota, joka merkkaa radat kartalle. Samalla siirretään omat koordinaatit funktiolle.
+Arvot tallennetaan muuttujiin. Arvojen perusteella kartalle laitetaan marker youMarker objektilla.
+Kun paikannus onnistuu kutsuttaan haeRadat funktiota, joka merkkaa radat kartalle. Samalla siirretään omat koordinaatit funktiolle.
 Jos oman paikan paikannus ei onnistu tulostetaan virhe viesti konsoliin.
  */
 
@@ -72,10 +73,14 @@ if(navigator.geolocation){
 }
 
 /*
-functiolla haeRadat haetaan discgolfmetrix API:sta Suomen frisbeegolfradat. Ehtolauseella tarkastetaan onko rata lopetettu eli onko sillä Enddate arvoa sekä tarkastetaan onko radalla koordinaatteja.
-Jos radalla ei ole koordinaatteja niin konsoliin tulostetaan "Ei merkattuja koordinaatteja". Jos rata on lopetettu se ei näy kartalla. Radat merkataan pngIcon-muutujalle, jonka kuvaa voidaan vaihtaa.
-For loopilla käydään radat läpi ja merkataan erillaisella markerilla. rataMarkkeri objektille eli radan markkerille, määritellään radan nimi pop up kuplaan, kun markkeria painetaan.
-Kun markkeria painetaan siirretään radan koordinaatit saaNyt ja saaMyohemmin funktioille. haeRadat vastaanottaa käyttäjän koordinaatit ja lähettää eteenpäin saaNyt funktiolle.
+functiolla haeRadat haetaan discgolfmetrix API:sta Suomen frisbeegolfradat.
+Ehtolauseella tarkastetaan onko rata lopetettu eli onko sillä Enddate arvoa sekä tarkastetaan onko radalla koordinaatteja.
+Jos radalla ei ole koordinaatteja niin konsoliin tulostetaan "Ei merkattuja koordinaatteja".
+Jos rata on lopetettu se ei näy kartalla. Radat merkataan pngIcon-muutujalle, jonka kuvaa voidaan vaihtaa.
+For loopilla käydään radat läpi ja merkataan erillaisella markerilla.
+rataMarkkeri objektille eli radan markkerille, määritellään radan nimi pop up kuplaan, kun markkeria painetaan.
+Kun markkeria painetaan siirretään radan koordinaatit saaNyt ja saaMyohemmin funktioille.
+haeRadat vastaanottaa käyttäjän koordinaatit ja lähettää eteenpäin saaNyt funktiolle.
  */
 
 function haeRadat(lat, long) {
@@ -122,9 +127,12 @@ function haeRadat(lat, long) {
 }
 
 /*
-Funktiolla saaNyt haetaan nykyinen sää Openwathermap API:sta, johon piti tehdä tunnukset avaimen saadakseen. Openwethermap API:sta käytettiin Current weather data APIa.
-Funktio ottaa parametrikseen käyttäjänsijainnin sekä radan sijainnin jota klikataan. Saatua dataa verrataan ehtolauseilla, onko Kaupungin nimeä.
-Kartan alle tulostetaan tiettyihin tageihin, kaupunki, säätila, lämpötila, tuulen nopeus sekä linkki Google Mapsiin(Näyttää reittiohjeet koordinaattien välille. Avautuu uuteen välilehteen).
+Funktiolla saaNyt haetaan nykyinen sää Openwathermap API:sta, johon piti tehdä tunnukset avaimen saadakseen.
+Openwethermap API:sta käytettiin Current weather data APIa.
+Funktio ottaa parametrikseen käyttäjänsijainnin sekä radan sijainnin jota klikataan.
+Saatua dataa verrataan ehtolauseilla, onko Kaupungin nimeä.
+Kartan alle tulostetaan tiettyihin tageihin, kaupunki, säätila, lämpötila,
+tuulen nopeus sekä linkki Google Mapsiin(Näyttää reittiohjeet koordinaattien välille. Avautuu uuteen välilehteen).
 Konsoliin tulee virheilmoitus, jos funktiossa tapahtuu virhe.
  */
 
@@ -159,7 +167,8 @@ function saaNyt(latitudeSijainti, longitudeSijainti, latitudeRata, longitudeRata
 
 /*
 Funktio saaMyohemmin ottaa vastaan radan koordinaatit haeRadat funktiolta. Näyden koordinaattien mukaan haetaan yhden vuorokauden sää for loopilla.
-Funktiossa käytetään Openwethermap API:sta 5 day / 3 hour forecast APIa. Se palauttaa sää ennusteen 3 tunnin välein. Jokaiselle tietopaketilla on oma div elementtinsä, jonka id:t alkaa 1 ja loppuu 9.
+Funktiossa käytetään Openwethermap API:sta 5 day / 3 hour forecast APIa. Se palauttaa sää ennusteen 3 tunnin välein.
+ Jokaiselle tietopaketilla on oma div elementtinsä, jonka id:t alkaa 1 ja loppuu 9.
 Säätietoihin tulostetaan päivämäärä/aika, sään kuvaus, lämpötila ja tuulennopeus. Jokaisella tiedolla on ehtolause, jos tietoa ei löydy.
 Funktio tulostaa virhe viestin konsoliin, mikäi funktiossa tapahtuu virhe.
  */
