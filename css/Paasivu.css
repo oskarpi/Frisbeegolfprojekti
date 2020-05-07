@@ -114,11 +114,6 @@ body {
     font-size: 95%;
 }
 
-img {
-    width: 200px;
-    height: auto;
-}
-
 
 
 @media screen and (min-width: 60em) {
